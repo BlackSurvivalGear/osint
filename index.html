@@ -14,73 +14,130 @@
 
 </head>
 
+
 <body>
+
+
 
 <header>
 
-<div class="radarLogo" onclick="showTab('home')">
-
+<div class="radarLogo">
 <video autoplay muted loop playsinline>
-<source src="RADAR3.mp4" type="video/mp4">
+<source src="RADAR3.mp4">
 </video>
-
-<div class="radarSweep"></div>
-
 </div>
 
 <h1>Global Strategic Awareness OSINT</h1>
 
+<div class="headerMarkets">
+
+<span id="goldPrice">GOLD --</span>
+<span id="silverPrice">SILVER --</span>
+
+</div>
+
 </header>
 
 
-<div class="ticker">
 
-<span id="ticker">Loading global headlines...</span>
+<!-- CRYPTO TICKER -->
+
+<div class="ticker-bar">
+
+<div id="marketTicker" class="ticker-content">
+Loading crypto market data...
+</div>
 
 </div>
 
 
+
+<!-- NAVIGATION -->
+
 <nav>
 
-<button onclick="showTab('home')" class="active">Home</button>
-<button onclick="showTab('news')">Conflict News</button>
-<button onclick="showTab('map')">Conflict Map</button>
-<button onclick="showTab('air')">Aircraft Watch</button>
-<button onclick="showTab('marine')">Marine Watch</button>
-<button onclick="showTab('cyber')">Cyber Attacks</button>
-<button onclick="showTab('fire')">Fire Monitor</button>
-<button onclick="showTab('command')">Overview</button>
+<button data-tab="home" class="active">Home</button>
+
+<button data-tab="live">LIVE NEWS</button>
+
+<button data-tab="map">Conflict Map</button>
+
+<button data-tab="air">Aircraft Watch</button>
+
+<button data-tab="marine">Marine Watch</button>
+
+<button data-tab="cyber">Cyber Attacks</button>
+
+<button data-tab="command">Overview</button>
+
+<button data-tab="gmap">Map</button>
 
 </nav>
 
 
+
+<!-- HOME -->
+
 <section id="home" class="tab active">
 
-<h2>Global Strategic Awareness OSINT</h2>
+<div class="homePanel">
+
+<img src="BSG2.png" class="homeBg">
+
+<div class="homeOverlay">
+
+<h2>Welcome to the BSG Global Strategic Awareness OSINT Platform</h2>
 
 <p class="homeText">
 
-The modern security environment is increasingly volatile and interconnected. Political tensions, regional conflicts, economic disruption, cyber incidents, and environmental crises can emerge rapidly and often with little warning.
-
-Reliable information is the foundation of effective decision-making.
+This dashboard consolidates open-source intelligence monitoring tools into a unified global situational awareness interface.
 
 </p>
 
-<div class="homeImage">
-
-<img src="BSG2.png">
+</div>
 
 </div>
 
 </section>
 
 
-<section id="news" class="tab">
 
-<div id="newsGrid" class="newsGrid"></div>
+<!-- LIVE NEWS -->
+
+<section id="live" class="tab">
+
+<div class="liveNav">
+
+<button onclick="showLive('rt')">RT</button>
+<button onclick="showLive('aj')">Al Jazeera</button>
+<button onclick="showLive('sky')">Sky News</button>
+<button onclick="showLive('reuters')">Reuters</button>
+<button onclick="showLive('quad')">QUAD VIEW</button>
+
+</div>
+
+<div id="liveSingle" class="livePlayer">
+
+<iframe id="liveFrame"
+src="https://rumble.com/embed/v33aw1a/?pub=4jw3x3"
+allowfullscreen></iframe>
+
+</div>
+
+<div id="quadView" class="quadGrid">
+
+<iframe src="https://rumble.com/embed/v33aw1a/?pub=4jw3x3"></iframe>
+<iframe src="https://www.youtube.com/embed/bNyUyrR0PHo"></iframe>
+<iframe src="https://www.youtube.com/embed/YDvsBbKfLPA"></iframe>
+<iframe src="https://www.youtube.com/embed/hNTn1EOYPAg"></iframe>
+
+</div>
 
 </section>
 
+
+
+<!-- CONFLICT MAP -->
 
 <section id="map" class="tab">
 
@@ -89,12 +146,18 @@ Reliable information is the foundation of effective decision-making.
 </section>
 
 
+
+<!-- AIRCRAFT -->
+
 <section id="air" class="tab">
 
 <iframe src="https://globe.adsbexchange.com/?military=1"></iframe>
 
 </section>
 
+
+
+<!-- MARINE -->
 
 <section id="marine" class="tab">
 
@@ -103,6 +166,9 @@ Reliable information is the foundation of effective decision-making.
 </section>
 
 
+
+<!-- CYBER -->
+
 <section id="cyber" class="tab">
 
 <iframe src="https://threatmap.checkpoint.com"></iframe>
@@ -110,12 +176,8 @@ Reliable information is the foundation of effective decision-making.
 </section>
 
 
-<section id="fire" class="tab">
 
-<iframe src="https://livingatlas.arcgis.com/wayback/#active=28190&mapCenter=0,0,2"></iframe>
-
-</section>
-
+<!-- COMMAND WALL -->
 
 <section id="command" class="tab">
 
@@ -131,7 +193,28 @@ Reliable information is the foundation of effective decision-making.
 </section>
 
 
+
+<!-- GOOGLE MAP -->
+
+<section id="gmap" class="tab">
+
+<iframe
+src="https://maps.google.com/maps?q=world&t=&z=2&ie=UTF8&iwloc=&output=embed">
+</iframe>
+
+</section>
+
+
+
 <footer>
+
+<div class="footerRadar">
+
+<video autoplay muted loop playsinline>
+<source src="RADAR3.mp4">
+</video>
+
+</div>
 
 <a href="https://BlackSurvivalGear.com" target="_blank" class="footerLink">
 BlackSurvivalGear.com
@@ -140,91 +223,154 @@ BlackSurvivalGear.com
 </footer>
 
 
+
 <script>
 
-function showTab(id){
 
-document.querySelectorAll(".tab").forEach(tab=>{
+
+/* TAB SYSTEM */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+const buttons=document.querySelectorAll("nav button")
+const tabs=document.querySelectorAll(".tab")
+
+buttons.forEach(button=>{
+
+button.addEventListener("click",function(){
+
+const target=this.getAttribute("data-tab")
+
+tabs.forEach(tab=>{
 tab.classList.remove("active")
 })
 
-document.getElementById(id).classList.add("active")
-
-document.querySelectorAll("nav button").forEach(btn=>{
+buttons.forEach(btn=>{
 btn.classList.remove("active")
 })
 
-event.target.classList.add("active")
+document.getElementById(target).classList.add("active")
+this.classList.add("active")
+
+})
+
+})
+
+})
+
+
+
+/* LIVE NEWS SWITCH */
+
+function showLive(channel){
+
+const frame=document.getElementById("liveFrame")
+const single=document.getElementById("liveSingle")
+const quad=document.getElementById("quadView")
+
+const streams={
+
+rt:"https://rumble.com/embed/v33aw1a/?pub=4jw3x3",
+aj:"https://www.youtube.com/embed/bNyUyrR0PHo",
+sky:"https://www.youtube.com/embed/YDvsBbKfLPA",
+reuters:"https://www.youtube.com/embed/hNTn1EOYPAg"
+
+}
+
+if(channel==="quad"){
+
+single.style.display="none"
+quad.style.display="grid"
+
+if(!document.fullscreenElement){
+quad.requestFullscreen()
+}
+
+return
+
+}
+
+quad.style.display="none"
+single.style.display="block"
+
+frame.src=streams[channel]
 
 }
 
 
-async function loadNews(){
 
-const feeds=[
+/* CRYPTO TICKER */
 
-"https://api.rss2json.com/v1/api.json?rss_url=https://feeds.bbci.co.uk/news/world/rss.xml",
-"https://api.rss2json.com/v1/api.json?rss_url=https://www.aljazeera.com/xml/rss/all.xml",
-"https://api.rss2json.com/v1/api.json?rss_url=https://www.reutersagency.com/feed/?best-topics=world&post_type=best"
+async function loadCryptoTicker(){
 
-]
+const url="https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false"
 
-let headlines=[]
+const res=await fetch(url)
+const data=await res.json()
 
-const container=document.getElementById("newsGrid")
+const ticker=document.getElementById("marketTicker")
 
-container.innerHTML=""
+ticker.innerHTML=""
 
-for(const feed of feeds){
+data.forEach(coin=>{
+
+const change=coin.price_change_percentage_24h||0
+const color=change>=0?"#00ff88":"#ff4d4d"
+const arrow=change>=0?"▲":"▼"
+
+const item=document.createElement("span")
+
+item.className="ticker-item"
+
+item.innerHTML=`
+<span class="ticker-symbol">${coin.symbol.toUpperCase()}</span>
+$${coin.current_price.toLocaleString()}
+<span style="color:${color}">
+${arrow} ${change.toFixed(2)}%
+</span>
+`
+
+ticker.appendChild(item)
+
+})
+
+}
+
+loadCryptoTicker()
+setInterval(loadCryptoTicker,30000)
+
+
+
+/* GOLD SILVER */
+
+async function loadMetals(){
 
 try{
 
-const res=await fetch(feed)
-const data=await res.json()
+const goldRes = await fetch("https://api.gold-api.com/price/XAU")
+const gold = await goldRes.json()
 
-data.items.slice(0,3).forEach(article=>{
+const silverRes = await fetch("https://api.gold-api.com/price/XAG")
+const silver = await silverRes.json()
 
-headlines.push(article.title)
+document.getElementById("goldPrice").innerText="GOLD $" + Math.round(gold.price)
+document.getElementById("silverPrice").innerText="SILVER $" + silver.price.toFixed(2)
 
-const card=document.createElement("div")
-card.className="newsCard"
+}
+catch{
 
-card.innerHTML=`
-
-<img src="${article.thumbnail || 'https://picsum.photos/600/300'}">
-
-<div class="newsText">
-
-<span class="source">${data.feed.title}</span>
-
-<h3>${article.title}</h3>
-
-<a href="${article.link}" target="_blank">Read report</a>
-
-</div>
-`
-
-container.appendChild(card)
-
-})
-
-}catch(e){}
+document.getElementById("goldPrice").innerText="GOLD --"
+document.getElementById("silverPrice").innerText="SILVER --"
 
 }
 
-document.getElementById("ticker").textContent=headlines.join(" ◆ ")
-
 }
 
-document.addEventListener("DOMContentLoaded",()=>{
-
-loadNews()
-
-setInterval(loadNews,60000)
-
-})
+loadMetals()
+setInterval(loadMetals,60000)
 
 </script>
+
 
 </body>
 </html>
