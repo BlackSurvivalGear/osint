@@ -1,0 +1,99 @@
+body{
+margin:0;
+font-family:'Rajdhani',sans-serif;
+background:#041f18;
+color:#e2f0e9;
+}
+
+header{
+display:flex;
+align-items:center;
+padding:10px;
+border-bottom:2px solid #c6a55a;
+}
+
+.logo img{
+width:60px;
+}
+
+header h1{
+margin-left:10px;
+font-size:26px;
+}
+
+.clock{
+margin-left:auto;
+}
+
+nav{
+display:flex;
+background:#0b3a2e;
+}
+
+nav button{
+padding:12px 18px;
+border:none;
+background:none;
+color:#fff;
+cursor:pointer;
+}
+
+nav button.active{
+background:#c6a55a;
+color:#041f18;
+}
+
+.tab{
+display:none;
+padding:20px;
+}
+
+.tab.active{
+display:block;
+}
+
+iframe{
+width:100%;
+height:600px;
+border:none;
+}
+
+.newsGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+}
+
+.newsCard{
+background:#0b3a2e;
+border-radius:6px;
+overflow:hidden;
+}
+
+.newsCard img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.newsText{
+padding:10px;
+}
+
+.ticker{
+background:#062b21;
+padding:8px;
+font-size:14px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+footer{
+text-align:center;
+padding:15px;
+border-top:1px solid #1b4d3e;
+}
