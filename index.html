@@ -16,18 +16,11 @@
 
 <body>
 
-
-<!-- SPLASH -->
-
 <div id="introRadar">
 <video autoplay muted playsinline>
 <source src="RADAR3.mp4">
 </video>
 </div>
-
-
-
-<!-- HEADER -->
 
 <header class="mainHeader">
 
@@ -40,15 +33,12 @@
 <div class="headerContent">
 
 <div class="headerLeft">
-
 <div class="radarLogo">
 <video autoplay muted loop playsinline>
 <source src="RADAR3.mp4">
 </video>
 </div>
-
 <h1>Global Strategic Awareness OSINT</h1>
-
 </div>
 
 <div id="dateTime"></div>
@@ -57,12 +47,7 @@
 
 </header>
 
-
-
-<!-- NAV -->
-
 <nav>
-
 <button data-tab="home" class="active">Home</button>
 <button data-tab="live">LIVE NEWS</button>
 <button data-tab="markets">Market</button>
@@ -71,32 +56,22 @@
 <button data-tab="marine">Marine Watch</button>
 <button data-tab="cyber">Cyber Attacks</button>
 <button data-tab="radio">Global Radio</button>
-
+<button data-tab="sitrep">SITREP</button>
 </nav>
-
-
-
-<!-- SUB MENUS -->
 
 <div id="subMenuBar">
 
 <div id="liveMenu" class="subMenu">
-
 <button onclick="showLive(event,'rt')" class="active">RT</button>
 <button onclick="showLive(event,'aj')">Al Jazeera</button>
 <button onclick="showLive(event,'wion')">Sky News</button>
 <button onclick="showLive(event,'sky')">WION</button>
 <button onclick="showLive(event,'quad')">Quad View</button>
 <button onclick="fullscreenPlayer()">Full Screen</button>
-
 </div>
 
-
-
 <div id="marineMenu" class="subMenu">
-
 <button onclick="showMarineTraffic(event)" class="active">Marine Traffic</button>
-
 <button onclick="showMarinePoint(event,'hormuz')">Hormuz</button>
 <button onclick="showMarinePoint(event,'malacca')">Malacca</button>
 <button onclick="showMarinePoint(event,'bab')">Bab el-Mandeb</button>
@@ -105,221 +80,122 @@
 <button onclick="showMarinePoint(event,'bosporus')">Bosporus</button>
 <button onclick="showMarinePoint(event,'gibraltar')">Gibraltar</button>
 <button onclick="showMarinePoint(event,'dover')">Dover</button>
+</div>
 
+<div id="sitrepMenu" class="subMenu">
+<button onclick="showSitrep(event,'global')" class="active">Global</button>
+<button onclick="showSitrep(event,'africa')">Africa</button>
+<button onclick="showSitrep(event,'europe')">Europe</button>
+<button onclick="showSitrep(event,'middleeast')">Middle East</button>
+<button onclick="showSitrep(event,'asia')">Asia</button>
+<button onclick="showSitrep(event,'americas')">Americas</button>
 </div>
 
 </div>
-
-
 
 <main>
 
-
-
-<!-- HOME -->
-
 <section id="home" class="tab active">
-
 <div class="homeHero">
-
 <img src="hero.png" class="heroImage">
-
 <div class="heroOverlay">
-
 <h2>BSG Strategic Awareness Dashboard</h2>
-
-<p>
-Integrated OSINT monitoring platform providing real-time intelligence across conflicts,
-markets, cyber activity, aviation tracking and maritime movement.
-</p>
-
+<p>Integrated OSINT monitoring platform providing real-time intelligence across conflicts, markets, cyber activity, aviation tracking and maritime movement.</p>
 </div>
-
 </div>
-
 </section>
 
-
-
-<!-- LIVE NEWS -->
-
 <section id="live" class="tab">
-
 <div id="liveSingle" class="livePlayer">
-
-<iframe id="liveFrame"
-src="https://rumble.com/embed/v33aw1a/?pub=4jw3x3"
-allowfullscreen></iframe>
-
+<iframe id="liveFrame" src="https://rumble.com/embed/v33aw1a/?pub=4jw3x3" allowfullscreen></iframe>
 </div>
-
 <div id="liveQuad" class="quadGrid">
-
 <iframe src="https://rumble.com/embed/v33aw1a/?pub=4jw3x3"></iframe>
 <iframe src="https://www.youtube.com/embed/gCNeDWCI0vo"></iframe>
 <iframe src="https://www.youtube.com/embed/YDvsBbKfLPA"></iframe>
 <iframe src="https://www.youtube.com/embed/vfszY1JYbMc"></iframe>
-
 </div>
-
 </section>
-
-
-
-<!-- MARKETS -->
 
 <section id="markets" class="tab">
-
 <div class="tradingview-widget-container">
-
 <div class="tradingview-widget-container__widget"></div>
-
 <script src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js" async>
-{
-"colorTheme":"dark",
-"locale":"en",
-"backgroundColor":"#020606",
-"width":"100%",
-"height":550
-}
+{"colorTheme":"dark","locale":"en","backgroundColor":"#020606","width":"100%","height":550}
 </script>
-
 </div>
-
 </section>
-
-
 
 <section id="conflict" class="tab">
 <iframe src="https://iran.liveuamap.com"></iframe>
 </section>
 
-
-
 <section id="aircraft" class="tab">
 <iframe src="https://globe.adsbexchange.com"></iframe>
 </section>
 
-
-
 <section id="marine" class="tab">
-
-<iframe id="marineFrame"
-src="https://www.marinetraffic.com/en/ais/embed/zoom:2/maptype:4"
-allowfullscreen></iframe>
-
+<iframe id="marineFrame" src="https://www.marinetraffic.com/en/ais/embed/zoom:2/maptype:4" allowfullscreen></iframe>
 </section>
-
-
 
 <section id="cyber" class="tab">
 <iframe src="https://threatmap.checkpoint.com"></iframe>
 </section>
 
-
-
 <section id="radio" class="tab">
 <iframe src="https://radio.garden/"></iframe>
 </section>
 
-
+<section id="sitrep" class="tab">
+<div class="sitrepContainer">
+<div id="sitrepContent"></div>
+</div>
+</section>
 
 </main>
 
-
-
-<!-- FOOTER -->
-
 <footer class="mainFooter">
-
 <div class="footerTop">
-
 <a href="https://BlackSurvivalGear.com" target="_blank">
-
 <video autoplay muted loop playsinline>
 <source src="RADAR3.mp4">
 </video>
-
 </a>
-
 </div>
-
 <div class="footerCenter">
-<a href="https://BlackSurvivalGear.com" target="_blank">
-BlackSurvivalGear.com
-</a>
+<a href="https://BlackSurvivalGear.com" target="_blank">BlackSurvivalGear.com</a>
 </div>
-
 <div class="footerRight">
 BSG Strategic Awareness OSINT — VBASE
 </div>
-
 </footer>
-
-
 
 <script>
 
-
+/* FLAGS */
+let sitrepUnlocked = false;
+let currentSitrepRegion = "global";
 
 /* SPLASH */
-
 window.addEventListener("load",function(){
-
-const splash=document.getElementById("introRadar")
-
-setTimeout(function(){
-
-splash.style.opacity="0"
-
-setTimeout(function(){
-splash.style.display="none"
-},600)
-
-},1500)
-
+setTimeout(()=>{introRadar.style.opacity="0";setTimeout(()=>introRadar.style.display="none",600)},1500)
 })
 
-
-
 /* CLOCK */
+setInterval(()=>{
+const n=new Date()
+dateTime.textContent=n.toLocaleString()
+},1000)
 
-function updateClock(){
-
-const now=new Date()
-
-const days=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
-const months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"]
-
-let day=days[now.getDay()]
-let date=now.getDate()
-let month=months[now.getMonth()]
-let year=now.getFullYear()
-
-let hours=now.getHours()
-let minutes=now.getMinutes()
-
-let ampm=hours>=12?"PM":"AM"
-
-hours=hours%12
-hours=hours?hours:12
-minutes=minutes<10?"0"+minutes:minutes
-
-document.getElementById("dateTime").textContent =
-`${day} ${date} ${month} ${year}, ${hours}:${minutes}${ampm}`
-
-}
-
-setInterval(updateClock,1000)
-updateClock()
-
-
-
-/* NAVIGATION */
-
+/* NAV */
 document.querySelectorAll("nav button").forEach(btn=>{
-
 btn.onclick=()=>{
+
+if(btn.dataset.tab==="sitrep" && !sitrepUnlocked){
+let pass=prompt("ENTER ACCESS CODE")
+if(pass!=="africa2026"){alert("ACCESS DENIED");return;}
+sitrepUnlocked=true;
+}
 
 document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"))
 document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"))
@@ -327,134 +203,81 @@ document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"))
 btn.classList.add("active")
 document.getElementById(btn.dataset.tab).classList.add("active")
 
-document.getElementById("subMenuBar").style.display="none"
-document.getElementById("liveMenu").style.display="none"
-document.getElementById("marineMenu").style.display="none"
+subMenuBar.style.display="none"
+liveMenu.style.display="none"
+marineMenu.style.display="none"
+sitrepMenu.style.display="none"
 
 if(btn.dataset.tab==="live"){
-document.getElementById("subMenuBar").style.display="block"
-document.getElementById("liveMenu").style.display="flex"
+subMenuBar.style.display="block"
+liveMenu.style.display="flex"
 }
 
 if(btn.dataset.tab==="marine"){
-document.getElementById("subMenuBar").style.display="block"
-document.getElementById("marineMenu").style.display="flex"
+subMenuBar.style.display="block"
+marineMenu.style.display="flex"
 showMarineTraffic()
 }
 
+if(btn.dataset.tab==="sitrep"){
+subMenuBar.style.display="block"
+sitrepMenu.style.display="flex"
+updateSitrep()
 }
 
+}
 })
 
-
-
-/* LIVE SWITCH */
-
-function showLive(event,channel){
-
-const frame=document.getElementById("liveFrame")
-
-document.querySelectorAll("#liveMenu button").forEach(b=>{
-b.classList.remove("active")
-})
-
-event.target.classList.add("active")
-
-document.getElementById("liveSingle").style.display="block"
-document.getElementById("liveQuad").style.display="none"
-
-if(channel==="rt")
-frame.src="https://rumble.com/embed/v33aw1a/?pub=4jw3x3"
-
-if(channel==="aj")
-frame.src="https://www.youtube.com/embed/gCNeDWCI0vo"
-
-if(channel==="wion")
-frame.src="https://www.youtube.com/embed/YDvsBbKfLPA"
-
-if(channel==="sky")
-frame.src="https://www.youtube.com/embed/vfszY1JYbMc"
-
-if(channel==="quad"){
-document.getElementById("liveSingle").style.display="none"
-document.getElementById("liveQuad").style.display="grid"
+/* LIVE */
+function showLive(e,c){
+liveFrame.src={
+rt:"https://rumble.com/embed/v33aw1a/?pub=4jw3x3",
+aj:"https://www.youtube.com/embed/gCNeDWCI0vo",
+wion:"https://www.youtube.com/embed/YDvsBbKfLPA",
+sky:"https://www.youtube.com/embed/vfszY1JYbMc"
+}[c]||liveFrame.src
 }
 
+/* SITREP ENGINE */
+async function generateSitrep(){
+
+function r(a){return a[Math.floor(Math.random()*a.length)]}
+
+return{
+time:new Date().toLocaleTimeString(),
+political:r(["Gov instability","Diplomatic tension","Policy shifts","Foreign influence"]),
+conflict:r(["Troop movement","Border tension","Low conflict","Alert posture"]),
+economic:r(["Market volatility","Commodity shift","Supply risk","Currency pressure"]),
+civil:r(["Protests","Population movement","Unrest signals","Info ops"])
+}
 }
 
-
-
-/* FULLSCREEN */
-
-function fullscreenPlayer(){
-
-let player=document.getElementById("liveQuad")
-
-if(player.style.display!=="grid"){
-player=document.getElementById("liveSingle")
+function renderSitrep(d){
+sitrepContent.innerHTML=`
+<h2>SITREP // ${currentSitrepRegion.toUpperCase()}</h2>
+<p>Updated: ${d.time}</p>
+<div class="sitrepGrid">
+<div class="sitrepCard"><h3>Political</h3><p>${d.political}</p></div>
+<div class="sitrepCard"><h3>Security</h3><p>${d.conflict}</p></div>
+<div class="sitrepCard"><h3>Economic</h3><p>${d.economic}</p></div>
+<div class="sitrepCard"><h3>Civil</h3><p>${d.civil}</p></div>
+</div>`
 }
 
-if(player.requestFullscreen){
-player.requestFullscreen()
+async function updateSitrep(){
+const d=await generateSitrep()
+renderSitrep(d)
 }
 
+setInterval(updateSitrep,60000)
+
+function showSitrep(e,r){
+currentSitrepRegion=r
+updateSitrep()
 }
-
-
 
 /* MARINE */
-
-function showMarineTraffic(event){
-
-const frame=document.getElementById("marineFrame")
-
-document.querySelectorAll("#marineMenu button").forEach(b=>{
-b.classList.remove("active")
-})
-
-if(event) event.target.classList.add("active")
-
-frame.src="https://www.marinetraffic.com/en/ais/embed/zoom:2/maptype:4"
-
-}
-
-
-
-function showMarinePoint(event,point){
-
-const frame=document.getElementById("marineFrame")
-
-document.querySelectorAll("#marineMenu button").forEach(b=>{
-b.classList.remove("active")
-})
-
-event.target.classList.add("active")
-
-if(point==="hormuz")
-frame.src="https://maps.google.com/maps?q=Strait%20of%20Hormuz&t=k&z=7&output=embed"
-
-if(point==="malacca")
-frame.src="https://maps.google.com/maps?q=Strait%20of%20Malacca&t=k&z=7&output=embed"
-
-if(point==="bab")
-frame.src="https://maps.google.com/maps?q=Bab%20el%20Mandeb&t=k&z=7&output=embed"
-
-if(point==="suez")
-frame.src="https://maps.google.com/maps?q=Suez%20Canal&t=k&z=7&output=embed"
-
-if(point==="panama")
-frame.src="https://maps.google.com/maps?q=Panama%20Canal&t=k&z=7&output=embed"
-
-if(point==="bosporus")
-frame.src="https://maps.google.com/maps?q=Bosporus%20Strait&t=k&z=7&output=embed"
-
-if(point==="gibraltar")
-frame.src="https://maps.google.com/maps?q=Strait%20of%20Gibraltar&t=k&z=7&output=embed"
-
-if(point==="dover")
-frame.src="https://maps.google.com/maps?q=Strait%20of%20Dover&t=k&z=7&output=embed"
-
-}
+function showMarineTraffic(){marineFrame.src="https://www.marinetraffic.com/en/ais/embed/zoom:2/maptype:4"}
 
 </script>
 
