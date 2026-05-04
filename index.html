@@ -8,6 +8,7 @@
 <style>
 :root{--cyan:#00ffee;--bg:#02070d;--panel:#061018}
 *{margin:0;padding:0;box-sizing:border-box}
+#opsViewport,#panAfricaViewport,#channelHubViewport,#headlinesFrame,.ai-grid{scrollbar-width:none}#opsViewport::-webkit-scrollbar,#panAfricaViewport::-webkit-scrollbar,#channelHubViewport::-webkit-scrollbar,#headlinesFrame::-webkit-scrollbar,.ai-grid::-webkit-scrollbar{display:none}
 body{background:var(--bg);color:#fff;font-family:Rajdhani,sans-serif;overflow-x:hidden}
 #commandHeader{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center;padding:18px 24px;background:linear-gradient(180deg,#07141c,#050b12);background-image:linear-gradient(180deg,rgba(7,20,28,0.88),rgba(5,11,18,0.92)),url('BSG BLACK GOLD.png');background-size:cover;background-position:center;border-bottom:2px solid #00ffee55}
 .brand-wrap{display:flex;align-items:center;gap:15px}
@@ -54,13 +55,13 @@ body{background:var(--bg);color:#fff;font-family:Rajdhani,sans-serif;overflow-x:
 .breaking-inner{display:flex;align-items:center;height:32px}
 .breaking-tag{background:#ff2200;color:#fff;font-family:'Share Tech Mono';font-size:12px;font-weight:700;padding:0 12px;height:100%;display:flex;align-items:center;letter-spacing:1px;animation:breakingPulse 1.5s infinite}
 @keyframes breakingPulse{50%{background:#cc0000}}
-.breaking-scroll{flex:1;overflow:hidden;display:flex;align-items:center}.breaking-track{display:inline-flex;align-items:center;white-space:nowrap;padding-left:100%;animation:scroll 120s linear infinite}
+.breaking-scroll{flex:1;overflow:hidden;display:flex;align-items:center}.breaking-track{display:inline-flex;align-items:center;white-space:nowrap;padding-left:100%;animation:scroll 120s linear infinite}.breaking-scroll:hover .breaking-track{animation-play-state:paused}
 .breaking-link{display:inline-block;padding-right:60px;color:#ff8866;text-decoration:none;font-size:13px;font-family:'Share Tech Mono'}
 .breaking-link:hover{color:#ffaa88}
 #newsTickerWrap{display:flex;flex-direction:column;background:#050b12;border-top:1px solid #00ffee55;border-bottom:1px solid #00ffee55;overflow:hidden}
 .channel{background:#071923;border:none;color:#7fd6df;padding:0 14px;cursor:pointer;font-family:'Share Tech Mono';font-size:12px;white-space:nowrap;transition:background 0.15s,color 0.15s,text-shadow 0.15s,box-shadow 0.15s}.channel.active{background:#0c2430;color:#00ffee;font-weight:700;text-shadow:0 0 8px #00ffee;box-shadow:inset 0 -2px 0 #00ffee}
 .channel-wrap{display:flex;overflow-x:auto;flex-shrink:0}
-.ticker-window{flex:1;overflow:hidden;display:flex;align-items:center}.ticker-track{display:inline-flex;align-items:center;white-space:nowrap;padding-left:100%;animation:scroll 150s linear infinite;font-size:18px}
+.ticker-window{flex:1;overflow:hidden;display:flex;align-items:center}.ticker-track{display:inline-flex;align-items:center;white-space:nowrap;padding-left:100%;animation:scroll 150s linear infinite;font-size:18px}.ticker-window:hover .ticker-track{animation-play-state:paused}
 @keyframes scroll{100%{transform:translateX(-100%)}}
 .headline-link{display:inline-block;padding-right:95px;color:#d7ffff;text-decoration:none;font-size:18px;line-height:42px}
 .placeholder{height:calc(100vh - 126px);display:flex;justify-content:center;align-items:center}
@@ -75,7 +76,7 @@ body{background:var(--bg);color:#fff;font-family:Rajdhani,sans-serif;overflow-x:
 .panel-trigger:hover{background:#0c2430;text-shadow:0 0 8px #00ffee}
 #opsShell.fullscreen #opsMenu{display:none}
 #opsShell.fullscreen #opsViewport{margin-left:0}
-#opsViewport{margin-left:48px}
+#opsViewport{margin-left:48px;background-image:linear-gradient(180deg,rgba(4,11,16,0.92),rgba(6,16,24,0.95)),url('BSG BLACK GOLD.png');background-size:cover;background-position:center;background-repeat:no-repeat}
 .feed-panel{position:relative;background:#000;border:1px solid #0f2730}
 .feed-label{position:absolute;top:10px;left:10px;padding:6px 10px;background:rgba(3,22,29,.8);border:1px solid #00ffee66;color:#00ffee;z-index:2}
 iframe,.map-frame{width:100%;height:100%;border:none}
@@ -103,6 +104,7 @@ a{color:#00ffee;text-decoration:none}
 #splashScreen video{width:140px;height:140px;border-radius:50%;border:1px solid #00ffee88;box-shadow:0 0 30px #00ffee,0 0 60px #00ffee55;animation:radarPulse 2s infinite}
 #splashScreen .splash-title{margin-top:20px;font-size:28px;font-weight:700;letter-spacing:3px;color:#06161c;text-shadow:0 0 30px #00ffee,0 0 60px #00ffee,0 0 100px #00ffee88}
 #splashScreen .splash-sub{font-size:13px;letter-spacing:6px;color:#00ffee;margin-top:6px;font-family:'Share Tech Mono'}
+.ai-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;padding:0 28px 28px}.ai-tile{display:flex;align-items:center;gap:14px;padding:16px 18px;background:#081821;border:1px solid #00ffee33;border-radius:8px;color:#d7ffff;text-decoration:none;font-family:'Share Tech Mono',monospace;font-size:13px;letter-spacing:1px;transition:border-color 0.2s,box-shadow 0.2s,background 0.2s,transform 0.15s}.ai-tile:hover{border-color:#00ffee;box-shadow:0 0 18px #00ffee44,0 0 36px #00ffee22;background:#0c2430;transform:translateY(-2px);color:#00ffee;text-shadow:0 0 6px #00ffee88}.ai-tile-icon{font-size:22px;flex-shrink:0;width:30px;text-align:center}.ai-section-hdr{color:#00ffee;font-family:'Share Tech Mono',monospace;font-size:14px;letter-spacing:3px;padding:20px 28px 6px;margin:0;border-bottom:1px solid #00ffee22;text-shadow:0 0 8px #00ffee66}
 .loader-wrap{margin-top:32px;width:260px;height:3px;background:#0a1a22;border-radius:2px;overflow:hidden}
 .loader-bar{width:0;height:100%;background:linear-gradient(90deg,#00ffee,#00ffeedd);border-radius:2px;animation:loadBar 3s ease-in-out forwards}
 @keyframes loadBar{0%{width:0}100%{width:100%}}
@@ -129,6 +131,8 @@ a{color:#00ffee;text-decoration:none}
 <button id='flightBtn' class='command-btn'>FLIGHT WATCH</button>
 <button id='marketsBtn' class='command-btn'>MARKETS</button>
 <button id='radioBtn' class='command-btn'>RADIO</button>
+<button id='aiLaunchpadBtn' class='command-btn'>AI LAUNCHPAD</button>
+<button id='discordBtn' class='command-btn'>DISCORD</button>
 </div>
 <div id='gmtClock' onclick='toggleAfricaTime()'></div>
 <div id='gmtClockFlag' style='text-align:center;font-size:28px;line-height:1;display:none;cursor:pointer' onclick='openCountryView()'></div>
@@ -156,6 +160,11 @@ a{color:#00ffee;text-decoration:none}
 <div id='donatePanel'>
 <h2 style='color:#00ffee;font-family:Share Tech Mono,monospace;letter-spacing:2px;text-shadow:0 0 10px #00ffee88;margin-bottom:14px'>SUPPORT BSG OSINT</h2>
 <div class='donate-toggle'>
+<button id='donateCategoryBtnCrypto' class='active' onclick='switchDonateCategory("crypto")'>CRYPTO</button>
+<button id='donateCategoryBtnFiat' onclick='switchDonateCategory("fiat")'>FIAT</button>
+</div>
+<div id='donateCryptoCategory'>
+<div class='donate-toggle' style='margin-bottom:12px'>
 <button id='donateBtcBtn' class='active' onclick='switchDonateNetwork("btc")'>BTC</button>
 <button id='donateUsdtBtn' onclick='switchDonateNetwork("usdt")'>USDT (TRON)</button>
 </div>
@@ -163,6 +172,14 @@ a{color:#00ffee;text-decoration:none}
 <div class='donate-addr-wrap'>
 <span class='donate-addr' id='donateAddr'>bc1quy9rhgtc4jg2auyjpj0tns0fk3s7h7ktzr62p6</span>
 <button class='donate-copy-btn' id='donateCopyBtn' onclick='copyDonateAddr()'>COPY</button>
+</div>
+</div>
+<div id='donateFiatCategory' style='display:none'>
+<div style='display:flex;flex-direction:column;gap:12px;margin:20px 0'>
+<a href='https://www.paypal.com/ncp/payment/496D9VBSUK462' target='_blank' rel='noopener noreferrer' class='donate-btn' style='display:inline-block;text-decoration:none;padding:14px 32px;font-size:15px;text-align:center'>DONATE VIA PAYPAL</a>
+<a href='https://www.paypal.com/ncp/payment/496D9VBSUK462' target='_blank' rel='noopener noreferrer' class='donate-btn' style='display:inline-block;text-decoration:none;padding:14px 32px;font-size:15px;text-align:center'>DONATE VIA APPLE PAY</a>
+</div>
+<p style='color:#7fd6df;font-size:12px;font-family:Share Tech Mono,monospace;margin-top:8px'>You will be redirected to complete your donation.</p>
 </div>
 </div>
 <div class='price-row'>
@@ -175,7 +192,7 @@ a{color:#00ffee;text-decoration:none}
 </header>
 <div id='breakingBanner'><div class='breaking-inner'><span class='breaking-tag'>BREAKING</span><div class='breaking-scroll'><div id='breakingTrack' class='breaking-track'></div></div></div></div>
 <div id='newsTickerWrap'>
-<div style='display:flex;align-items:stretch;height:30px;border-bottom:1px solid #00ffee22'><div id='tickerModeToggle' style='display:flex;flex-shrink:0'><button class='channel tickerModeBtn active' onclick='setTickerMode("global")' style='font-weight:700;border-right:2px solid #00ffee44;padding:0 10px;font-size:11px'>GLOBAL</button><button class='channel tickerModeBtn' onclick='setTickerMode("africa")' style='font-weight:700;border-right:2px solid #00ffee44;padding:0 10px;font-size:11px'>AFRICA</button></div><div id='tickerChannels' class='channel-wrap'></div></div>
+<div style='display:flex;align-items:stretch;height:30px;border-bottom:1px solid #00ffee22'><div id='tickerModeToggle' style='display:flex;flex-shrink:0'><button class='channel tickerModeBtn' onclick='setTickerMode("global")' style='font-weight:700;border-right:2px solid #00ffee44;padding:0 10px;font-size:11px'>GLOBAL</button><button class='channel tickerModeBtn active' onclick='setTickerMode("africa")' style='font-weight:700;border-right:2px solid #00ffee44;padding:0 10px;font-size:11px'>AFRICA</button></div><div id='tickerChannels' class='channel-wrap'></div></div>
 <div class='ticker-window' style='height:36px'><div id='newsTicker' class='ticker-track'>Loading Tactical Feed...</div></div>
 </div>
 <section class='placeholder'><div id='opsBay' class='ops-bay'></div></section>
@@ -657,9 +674,35 @@ async function exchFetchRates(base){const r=await fetch('https://api.exchangerat
 async function exchUpdateTable(){try{const rates=await exchFetchRates('NGN');const pairs={gbp:'GBP',usd:'USD',cad:'CAD',eur:'EUR',rub:'RUB',cny:'CNY',zar:'ZAR'};for(const[id,code]of Object.entries(pairs)){const el=document.getElementById('rate-'+id);if(el){const rate=rates[code];el.textContent=rate?(1/rate).toFixed(2):'0.00'}}}catch(e){}}
 async function exchConvert(){const amount=parseFloat(document.getElementById('exchAmount').value);const from=document.getElementById('exchFrom').value;const to=document.getElementById('exchTo').value;const res=document.getElementById('exchResult');const err=document.getElementById('exchError');if(isNaN(amount)||amount<=0){err.textContent='Please enter a valid amount.';res.textContent='';return}err.textContent='';res.textContent='';try{const rates=await exchFetchRates(from);const rate=rates[to];if(rate){res.textContent=amount+' '+from+' = '+(amount*rate).toFixed(2)+' '+to}else{res.textContent='Conversion not available.'}}catch(e){res.textContent='';err.textContent='Failed to fetch rates.'}}
 
-newsBtn.onclick=loadNews;mapBtn.onclick=loadConflict;marineBtn.onclick=loadMarine;flightBtn.onclick=loadFlight;marketsBtn.onclick=loadMarkets;headlinesBtn.onclick=loadHeadlines;radioBtn.onclick=loadRadio;
+newsBtn.onclick=loadNews;mapBtn.onclick=loadConflict;marineBtn.onclick=loadMarine;flightBtn.onclick=loadFlight;marketsBtn.onclick=loadMarkets;headlinesBtn.onclick=loadHeadlines;radioBtn.onclick=loadRadio;aiLaunchpadBtn.onclick=loadAILaunchpad;discordBtn.onclick=loadDiscord;
+function popoutDiscord(){window.open('https://e.widgetbot.io/channels/1500947025196220536','BSG_Discord','width=900,height=700,menubar=no,toolbar=no,location=no,status=no')}
+function loadDiscord(){active('discordBtn');renderOps(`<button class='command-btn' onclick='loadDiscord()'>REFRESH</button><br><br><button class='command-btn' onclick='popoutDiscord()'>⧉ POP OUT</button><br><br><button class='command-btn' onclick='loadDiscordSplit()'>⊞ SPLIT VIEW</button>`,`<div style='height:100%;display:flex;flex-direction:column;align-items:center;background:#061018;padding:20px'><div style='width:100%;max-width:900px;flex:1;display:flex;flex-direction:column;border:1px solid #00ffee44;border-radius:10px;box-shadow:0 0 24px #00ffee22,inset 0 0 12px #00ffee08;overflow:hidden'><div style='background:linear-gradient(90deg,#081821,#0c2a35);padding:10px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #00ffee33'><div style='display:flex;align-items:center;gap:10px'><span style="font-size:20px">💬</span><span style='color:#00ffee;font-family:Share Tech Mono,monospace;font-size:14px;letter-spacing:3px;text-shadow:0 0 8px #00ffee66'>BSG OSINT — DISCORD</span></div><button onclick='popoutDiscord()' style='background:transparent;border:1px solid #00ffee44;color:#00ffee;font-family:Share Tech Mono,monospace;font-size:12px;letter-spacing:2px;padding:4px 12px;cursor:pointer;border-radius:4px;transition:all 0.2s;text-shadow:0 0 6px #00ffee88' onmouseover="this.style.background='#0c2430';this.style.boxShadow='0 0 12px #00ffee44'" onmouseout="this.style.background='transparent';this.style.boxShadow='none'">⧉ POP OUT</button></div><iframe src="https://e.widgetbot.io/channels/1500947025196220536" allow="clipboard-write; fullscreen" style="flex:1;width:100%;border:none"></iframe></div></div>`)}
+const splitChannels=[...globalFeeds,...africanChannels,...americanChannels,...asianChannels,...chineseChannels,...europeanChannels,...russianChannels].filter((ch,i,arr)=>arr.findIndex(c=>c[1]===ch[1])===i);
+let splitLeftIdx=0,splitRightIdx=1;
+function initSplitIdx(){splitLeftIdx=splitChannels.findIndex(c=>c[0]==='RT');splitRightIdx=splitChannels.findIndex(c=>c[0]==='AL JAZEERA');if(splitLeftIdx<0)splitLeftIdx=0;if(splitRightIdx<0)splitRightIdx=1}
+initSplitIdx();
+function splitChangeChannel(side,dir){if(side==='left'){splitLeftIdx=(splitLeftIdx+dir+splitChannels.length)%splitChannels.length;document.getElementById('splitLeftLabel').textContent=splitChannels[splitLeftIdx][0]+' LIVE';document.getElementById('splitLeftFrame').src=splitChannels[splitLeftIdx][1]}else{splitRightIdx=(splitRightIdx+dir+splitChannels.length)%splitChannels.length;document.getElementById('splitRightLabel').textContent=splitChannels[splitRightIdx][0]+' LIVE';document.getElementById('splitRightFrame').src=splitChannels[splitRightIdx][1]}}
+const splitArrowStyle="background:transparent;border:1px solid #00ffee44;color:#00ffee;font-family:Share Tech Mono,monospace;font-size:14px;padding:0 6px;cursor:pointer;border-radius:3px;transition:all 0.2s;line-height:22px";
+function loadDiscordSplit(){active('discordBtn');const lCh=splitChannels[splitLeftIdx];const rCh=splitChannels[splitRightIdx];renderOps(`<button class='command-btn' onclick='loadDiscord()'>CHAT ONLY</button><br><br><button class='command-btn' onclick='popoutDiscord()'>⧉ POP OUT</button><br><br><button class='command-btn' onclick='loadDiscordSplit()'>REFRESH</button>`,`<div style='height:100%;display:flex;gap:4px;background:#061018;padding:4px'><div style='flex:1;display:flex;flex-direction:column;border:1px solid #00ffee44;border-radius:8px;overflow:hidden'><div style='background:linear-gradient(90deg,#081821,#0c2a35);padding:6px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #00ffee33'><button onclick='splitChangeChannel("left",-1)' style='${splitArrowStyle}' onmouseover="this.style.background='#0c2430'" onmouseout="this.style.background='transparent'">◀</button><div style='display:flex;align-items:center;gap:6px'><span style='color:#ff4444;font-size:8px'>&#9679;</span><span id='splitLeftLabel' style='color:#00ffee;font-family:Share Tech Mono,monospace;font-size:11px;letter-spacing:2px;text-shadow:0 0 6px #00ffee66'>${lCh[0]} LIVE</span></div><button onclick='splitChangeChannel("left",1)' style='${splitArrowStyle}' onmouseover="this.style.background='#0c2430'" onmouseout="this.style.background='transparent'">▶</button></div><iframe id='splitLeftFrame' src='${lCh[1]}' allow='autoplay;fullscreen;encrypted-media' style='flex:1;width:100%;border:none'></iframe></div><div style='flex:1;display:flex;flex-direction:column;border:1px solid #00ffee44;border-radius:8px;overflow:hidden'><div style='background:linear-gradient(90deg,#081821,#0c2a35);padding:6px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #00ffee33'><div style='display:flex;align-items:center;gap:8px'><span style='font-size:14px'>💬</span><span style='color:#00ffee;font-family:Share Tech Mono,monospace;font-size:11px;letter-spacing:2px;text-shadow:0 0 6px #00ffee66'>DISCORD</span></div><button onclick='popoutDiscord()' style='background:transparent;border:1px solid #00ffee44;color:#00ffee;font-family:Share Tech Mono,monospace;font-size:10px;padding:2px 8px;cursor:pointer;border-radius:3px;transition:all 0.2s' onmouseover="this.style.background='#0c2430'" onmouseout="this.style.background='transparent'">⧉</button></div><iframe src='https://e.widgetbot.io/channels/1500947025196220536' allow='clipboard-write;fullscreen' style='flex:1;width:100%;border:none'></iframe></div><div style='flex:1;display:flex;flex-direction:column;border:1px solid #00ffee44;border-radius:8px;overflow:hidden'><div style='background:linear-gradient(90deg,#081821,#0c2a35);padding:6px 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #00ffee33'><button onclick='splitChangeChannel("right",-1)' style='${splitArrowStyle}' onmouseover="this.style.background='#0c2430'" onmouseout="this.style.background='transparent'">◀</button><div style='display:flex;align-items:center;gap:6px'><span style='color:#ff4444;font-size:8px'>&#9679;</span><span id='splitRightLabel' style='color:#00ffee;font-family:Share Tech Mono,monospace;font-size:11px;letter-spacing:2px;text-shadow:0 0 6px #00ffee66'>${rCh[0]} LIVE</span></div><button onclick='splitChangeChannel("right",1)' style='${splitArrowStyle}' onmouseover="this.style.background='#0c2430'" onmouseout="this.style.background='transparent'">▶</button></div><iframe id='splitRightFrame' src='${rCh[1]}' allow='autoplay;fullscreen;encrypted-media' style='flex:1;width:100%;border:none'></iframe></div></div>`)}
+const aiCategories=[
+{title:'GENERAL / MULTI-PURPOSE AI',icon:'🧠',tools:[
+{name:'OpenAI (ChatGPT)',url:'https://chat.openai.com'},{name:'Anthropic (Claude)',url:'https://claude.ai'},{name:'Google (Gemini)',url:'https://gemini.google.com'},{name:'DeepSeek',url:'https://chat.deepseek.com'},{name:'xAI (Grok)',url:'https://grok.com'},{name:'Mistral AI',url:'https://chat.mistral.ai'},{name:'Meta AI',url:'https://www.meta.ai'},{name:'Cohere',url:'https://cohere.com'},{name:'Inflection AI (Pi)',url:'https://pi.ai'},{name:'Alibaba (Qwen)',url:'https://qwenlm.ai'}]},
+{title:'AI SEARCH / OSINT RESEARCH',icon:'🔎',tools:[
+{name:'Perplexity AI',url:'https://www.perplexity.ai'},{name:'You.com',url:'https://you.com'},{name:'Google (Gemini Search)',url:'https://gemini.google.com'},{name:'Microsoft (Copilot)',url:'https://copilot.microsoft.com'},{name:'Brave Search AI',url:'https://search.brave.com'},{name:'Andi Search',url:'https://andisearch.com'},{name:'Phind',url:'https://www.phind.com'},{name:'Kagi Assistant',url:'https://kagi.com'},{name:'Exa',url:'https://exa.ai'},{name:'Elicit',url:'https://elicit.com'}]},
+{title:'IMAGE / VISUAL / GEOINT AI',icon:'🖼️',tools:[
+{name:'Google Lens',url:'https://lens.google.com'},{name:'OpenAI (DALL·E)',url:'https://labs.openai.com'},{name:'Stability AI',url:'https://stability.ai'},{name:'Midjourney',url:'https://www.midjourney.com'},{name:'Hugging Face',url:'https://huggingface.co'},{name:'Runway',url:'https://runwayml.com'},{name:'Planet Labs',url:'https://www.planet.com'},{name:'Maxar Technologies',url:'https://www.maxar.com'},{name:'BlackSky',url:'https://www.blacksky.com'},{name:'Clearview AI',url:'https://www.clearview.ai'}]},
+{title:'AUDIO / SPEECH / COMMS INTEL',icon:'🎧',tools:[
+{name:'OpenAI (Whisper)',url:'https://openai.com/research/whisper'},{name:'AssemblyAI',url:'https://www.assemblyai.com'},{name:'Deepgram',url:'https://deepgram.com'},{name:'Rev',url:'https://www.rev.com'},{name:'Speechmatics',url:'https://www.speechmatics.com'},{name:'Sonix',url:'https://sonix.ai'},{name:'Otter.ai',url:'https://otter.ai'},{name:'Descript',url:'https://www.descript.com'},{name:'ElevenLabs',url:'https://elevenlabs.io'},{name:'Resemble AI',url:'https://www.resemble.ai'}]},
+{title:'AUTOMATION / AGENTS / WORKFLOWS',icon:'⚙️',tools:[
+{name:'Zapier',url:'https://zapier.com'},{name:'Make',url:'https://www.make.com'},{name:'LangChain',url:'https://www.langchain.com'},{name:'LlamaIndex',url:'https://www.llamaindex.ai'},{name:'AutoGPT',url:'https://autogpt.net'},{name:'AgentGPT',url:'https://agentgpt.reworkd.ai'},{name:'CrewAI',url:'https://www.crewai.com'},{name:'Flowise',url:'https://flowiseai.com'},{name:'Dust',url:'https://dust.tt'},{name:'Relevance AI',url:'https://relevanceai.com'}]},
+{title:'CODING / DEV / OSINT BUILD TOOLS',icon:'💻',tools:[
+{name:'GitHub Copilot',url:'https://github.com/features/copilot'},{name:'OpenAI (Codex)',url:'https://openai.com/api'},{name:'Anthropic (Claude Code)',url:'https://claude.ai'},{name:'Cursor',url:'https://cursor.sh'},{name:'Replit',url:'https://replit.com'},{name:'Phind',url:'https://www.phind.com'},{name:'Codeium',url:'https://codeium.com'},{name:'Tabnine',url:'https://www.tabnine.com'},{name:'Sourcegraph (Cody)',url:'https://sourcegraph.com/cody'},{name:'Amazon CodeWhisperer',url:'https://aws.amazon.com/codewhisperer'}]}
+];
+function aiCatId(i){return 'ai-cat-'+i}
+function scrollToAiCat(i){const el=document.getElementById(aiCatId(i));if(!el)return;const vp=document.getElementById('opsViewport');if(vp){const scrollable=vp.firstElementChild;if(scrollable)scrollable.scrollTo({top:el.offsetTop-scrollable.offsetTop,behavior:'smooth'})}}
+function loadAILaunchpad(){active('aiLaunchpadBtn');renderOps(`<button class='command-btn' onclick='loadAILaunchpad()'>REFRESH</button><br><br>${aiCategories.map((c,i)=>"<button class='command-btn' onclick='scrollToAiCat("+i+")'>"+c.icon+" "+esc(c.title)+"</button><br><br>").join('')}`,`<div style='height:100%;overflow-y:auto;background:#061018'><h2 style='text-align:center;color:#00ffee;font-family:Share Tech Mono,monospace;letter-spacing:4px;padding:24px 0 8px;margin:0;text-shadow:0 0 12px #00ffee88'>AI LAUNCHPAD</h2>${aiCategories.map((c,i)=>"<h3 class='ai-section-hdr' id='"+aiCatId(i)+"'>"+c.icon+" "+esc(c.title)+"</h3><div class='ai-grid'>"+c.tools.map(t=>"<a class='ai-tile' href='"+safeHref(t.url)+"' target='_blank' rel='noopener'>"+esc(t.name)+"</a>").join('')+"</div>").join('')}</div>`)}
 function loadRadio(){active('radioBtn');renderOps(`<button class='command-btn' onclick='loadRadio()'>REFRESH</button>`,`<iframe src='https://radio.garden/listen/legacy-90-1-fm/ZZSjC3SX' style='width:100%;height:100%;border:none'></iframe>`)}
-let headlineMode='global';
+let headlineMode='africa';
 function loadHeadlines(mode){if(mode)headlineMode=mode;active('headlinesBtn');renderOps(`
 <button class='command-btn' onclick='loadHeadlines()'>REFRESH</button>
 `,`<div id='headlinesFrame' style='height:100%;overflow-y:auto;padding:20px;background:#061018'></div>`);renderHeadlineContent()}
@@ -694,7 +737,7 @@ const rss=[
 'https://feeds.skynews.com/feeds/rss/world.xml'
 ];
 const tags=['AJ','AP','BBC','CNBC','DW','EURO','AFRICA','GUARDIAN','REUTERS','RT','SKY'];let cf=0;
-let tickerMode='global';
+let tickerMode='africa';
 const africaTickerFeeds=africaRssFeeds.filter(f=>f.tag!=='NATION'&&f.tag!=='THE CABLE'&&!f.tag.startsWith('AI ')&&f.tag!=='BUSINESS DAY'&&f.tag!=='DAILY MAVERICK'&&f.tag!=='ENA ETHIOPIA'&&f.tag!=='EAST AFRICAN'&&f.tag!=='MAP MOROCCO'&&f.tag!=='SA GOV');
 function setTickerMode(mode){tickerMode=mode;cf=0;document.querySelectorAll('.tickerModeBtn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tickerModeBtn').forEach(b=>{if((mode==='global'&&b.textContent==='GLOBAL')||(mode==='africa'&&b.textContent==='AFRICA'))b.classList.add('active')});buildTickerChannels();loadTicker()}
 function buildTickerChannels(){const wrap=document.getElementById('tickerChannels');if(tickerMode==='africa'){wrap.innerHTML=africaTickerFeeds.map((f,i)=>`<button class='channel${i===cf?" active":""}' data-idx='${i}'>${f.tag}</button>`).join('')}else{wrap.innerHTML=tags.map((t,i)=>`<button class='channel${i===cf?" active":""}' data-idx='${i}'>${t}</button>`).join('')}wrap.querySelectorAll('.channel').forEach(b=>b.onclick=()=>{wrap.querySelectorAll('.channel').forEach(x=>x.classList.remove('active'));b.classList.add('active');cf=parseInt(b.dataset.idx);loadTicker()})}
@@ -734,10 +777,12 @@ try{const r=await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitco
 fetchPrices();setInterval(fetchPrices,60000);
 
 const donateWallets={btc:{addr:'bc1quy9rhgtc4jg2auyjpj0tns0fk3s7h7ktzr62p6',qr:'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bc1quy9rhgtc4jg2auyjpj0tns0fk3s7h7ktzr62p6'},usdt:{addr:'TJXpvDnuTtx2Zth2YBNgHZnkbymJTnrgzx',qr:'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=TJXpvDnuTtx2Zth2YBNgHZnkbymJTnrgzx'}};
+let donateCategory='crypto';
+function switchDonateCategory(cat){donateCategory=cat;document.getElementById('donateCategoryBtnCrypto').classList.toggle('active',cat==='crypto');document.getElementById('donateCategoryBtnFiat').classList.toggle('active',cat==='fiat');document.getElementById('donateCryptoCategory').style.display=cat==='crypto'?'block':'none';document.getElementById('donateFiatCategory').style.display=cat==='fiat'?'block':'none'}
 let donateNetwork='btc';
 function toggleDonatePanel(){document.getElementById('donatePanel').classList.toggle('open')}
-function switchDonateNetwork(net){donateNetwork=net;const w=donateWallets[net];document.getElementById('donateAddr').textContent=w.addr;document.getElementById('donateQrImg').src=w.qr;document.getElementById('donateBtcBtn').classList.toggle('active',net==='btc');document.getElementById('donateUsdtBtn').classList.toggle('active',net==='usdt');document.getElementById('donateCopyBtn').textContent='COPY'}
-function copyDonateAddr(){const addr=donateWallets[donateNetwork].addr;navigator.clipboard.writeText(addr).then(()=>{const btn=document.getElementById('donateCopyBtn');btn.textContent='COPIED';setTimeout(()=>{btn.textContent='COPY'},2000)}).catch(()=>{const t=document.createElement('textarea');t.value=addr;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);const btn=document.getElementById('donateCopyBtn');btn.textContent='COPIED';setTimeout(()=>{btn.textContent='COPY'},2000)})}
+function switchDonateNetwork(net){donateNetwork=net;const w=donateWallets[net];document.getElementById('donateBtcBtn').classList.toggle('active',net==='btc');document.getElementById('donateUsdtBtn').classList.toggle('active',net==='usdt');document.getElementById('donateAddr').textContent=w.addr;document.getElementById('donateQrImg').src=w.qr;document.getElementById('donateCopyBtn').textContent='COPY'}
+function copyDonateAddr(){if(!donateWallets[donateNetwork])return;const addr=donateWallets[donateNetwork].addr;navigator.clipboard.writeText(addr).then(()=>{const btn=document.getElementById('donateCopyBtn');btn.textContent='COPIED';setTimeout(()=>{btn.textContent='COPY'},2000)}).catch(()=>{const t=document.createElement('textarea');t.value=addr;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);const btn=document.getElementById('donateCopyBtn');btn.textContent='COPIED';setTimeout(()=>{btn.textContent='COPY'},2000)})}
 document.addEventListener('click',function(e){const panel=document.getElementById('donatePanel');const btn=document.querySelector('.donate-btn');if(panel.classList.contains('open')&&!panel.contains(e.target)&&!btn.contains(e.target)){panel.classList.remove('open')}});
 </script>
 </body>
